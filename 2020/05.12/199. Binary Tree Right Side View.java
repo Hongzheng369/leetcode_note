@@ -4,6 +4,7 @@ class Solution {
         helper(root, res, 0);
         return res;
     }
+    
     public void helper(TreeNode root, List<Integer> res, int curDepth){
         if(root == null)
             return;
