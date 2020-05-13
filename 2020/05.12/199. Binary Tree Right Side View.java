@@ -5,6 +5,7 @@ class Solution {
         return res;
     }
     
+    // DFS
     public void helper(TreeNode root, List<Integer> res, int curDepth){
         if(root == null)
             return;
