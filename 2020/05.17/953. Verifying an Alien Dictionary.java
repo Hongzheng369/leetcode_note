@@ -9,6 +9,7 @@ class Solution {
         return true;
     }
 
+    
     public int compare(String s1, String s2) {
         int m = s1.length(), n = s2.length(), cmp = 0;
         for (int i = 0, j = 0; i < m && j < n && cmp == 0; i++, j++) {
