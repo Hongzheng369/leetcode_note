@@ -1,11 +1,11 @@
 public class Solution {
 
     int[] nums;
-    Random rnd;
+    Random rand;
 
     public Solution(int[] nums) {
         this.nums = nums;
-        this.rnd = new Random();
+        this.rand = new Random();
     }
     
     public int pick(int target) {
@@ -14,7 +14,7 @@ public class Solution {
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != target)
                 continue;
-            if (rnd.nextInt(++count) == 0)
+            if (rand.nextInt(++count) == 0)
                 result = i;
         }
         
