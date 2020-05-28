@@ -10,7 +10,6 @@ public class Solution {
             else if(!s.equals("") && !s.equals("."))
                 stack.add(s);
         }
-
         for(String s: stack){
             sb.append(s+"/");
         }
