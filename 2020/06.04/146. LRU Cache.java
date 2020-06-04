@@ -1,9 +1,9 @@
 import java.util.*;
 class LRUCache {
     private Hashtable<Integer, DNode>  map = new Hashtable<>();
-    private  int count;
-    private    int capacity;
-    private   DNode head, tail;
+    private int count;
+    private int capacity;
+    private DNode head, tail;
     
     class DNode{
         DNode pre;
