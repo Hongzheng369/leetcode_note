@@ -1,4 +1,4 @@
-public class Solution {
+class Solution {
     public boolean isStrobogrammatic(String num) {
         HashMap<Character, Character> map = new HashMap<Character, Character>();
         map.put('1','1');
