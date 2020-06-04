@@ -1,88 +1,58 @@
-import java.util.*;
 class LRUCache {
-    private Hashtable<Integer, DNode>  map = new Hashtable<>();
-    private int count;
-    private int capacity;
-    private DNode head, tail;
-    
-    class DNode{
-        DNode pre;
-        DNode post;
-        int key, val;
-    }
-    
-    private void addNode(DNode node){
-        node.pre = head;
-        node.post = head.post;
-        
-        head.post.pre = node;
-        head.post = node;
-    }
-    private void removeNode(DNode node){
-        DNode pre = node.pre;
-        DNode post = node.post;
-        pre.post = post;
-        post.pre = pre;
-    }
-    private void moveToHead(DNode node){
-        this.removeNode(node);
-        this.addNode(node);
-    }
-    private DNode popTail(){
-        DNode res = tail.pre;
-        this.removeNode(res);
-        return res;
-    }
-    
-    
-    public LRUCache(int capacity) {
-        this.count = 0;
-        this.capacity = capacity;
-        
-        head= new DNode();
-        head.pre = null;
-        tail = new DNode();
-        tail.post = null;
-        
-        head.post = tail;
-        tail.pre = head;
-    }
-    
-    public int get(int key) {
-        DNode node = map.get(key);
-        if(node == null){
-            return -1;
-            
+    class Node{
+        Node prev, next;
+        int key, value;
+        Node(int _key, int _value) {
+          key = _key;
+          value = _value;
         }
-        this.moveToHead(node);
-        return node.val;
-        
-    }
+  }
     
-    public void put(int key, int val) {
-        DNode node = map.get(key);
-        if(node == null){
-            DNode  newNode = new DNode();
-            newNode.key = key;
-            newNode.val = val;
-            this.map.put(key, newNode);
-            this.addNode(newNode);
-            count++;
-            if(count > capacity){
-                DNode tail = this.popTail();
-                this.map.remove(tail.key);
-                count--;
-            }
-        }else{
-            node.val = val;
-            this.moveToHead(node);
-        }
-    }
-}
+      Node head = new Node(0, 0), tail = new Node(0, 0);
+      Map<Integer, Node> map = new HashMap();
+      int capacity;
 
-/**
- * Your LRUCache object will be instantiated and called as such:
- * LRUCache obj = new LRUCache(capacity);
- * int param_1 = obj.get(key);
- * obj.put(key,value);
- */
+      public LRUCache(int _capacity) {
+        capacity = _capacity;
+        head.next = tail;
+        tail.prev = head;
+      }
+
+      public int get(int key) {
+        if(map.containsKey(key)) {
+          Node node = map.get(key);
+          remove(node);
+          insert(node);
+          return node.value;
+        } else {
+          return -1;
+        }
+      }
+
+      public void put(int key, int value) {
+        if(map.containsKey(key)) {
+          remove(map.get(key));
+        }
+        if(map.size() == capacity) {
+          remove(tail.prev);
+        }
+        insert(new Node(key, value));
+      }
+
+      private void remove(Node node) {
+        map.remove(node.key);
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+      }
+
+      private void insert(Node node){
+        map.put(node.key, node);
+        Node headNext = head.next;
+        head.next = node;
+        node.prev = head;
+        headNext.prev = node;
+        node.next = headNext;
+      }
+
+
+}
