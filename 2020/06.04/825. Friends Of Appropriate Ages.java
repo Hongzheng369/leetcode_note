@@ -6,7 +6,8 @@ class Solution {
         int res = 0;
         for (Integer a : count.keySet())
             for (Integer b : count.keySet())
-                if (request(a, b)) res += count.get(a) * (count.get(b) - (a == b ? 1 : 0));
+                if (request(a, b)) 
+                    res += count.get(a) * (count.get(b) - (a == b ? 1 : 0));
         return res;
     }
 
