@@ -26,7 +26,6 @@ Output: 4
 */
 
 class Solution {
-
     public int closestValue(TreeNode root, double target) {
         int res = root.val;
         if (target < root.val && root.left) {
