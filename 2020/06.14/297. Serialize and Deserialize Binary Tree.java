@@ -9,7 +9,7 @@
  */
 public class Codec {
     private static final String split =",";
-    private static final String NN = "#";
+    private static final String NN = "null";
     
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
