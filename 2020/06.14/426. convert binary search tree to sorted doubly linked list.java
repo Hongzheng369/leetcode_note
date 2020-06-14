@@ -51,7 +51,7 @@ class Solution {
         head.left = pre;
         return head;
     }
-    void inorder(Node node, Node pre, Node head) {
+    public void inorder(Node node, Node pre, Node head) {
         if (node == null) return;
         inorder(node.left, pre, head);
         if (head == null) {
