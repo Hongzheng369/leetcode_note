@@ -28,33 +28,26 @@ class Node {
 };
 */
 class Solution {
-    private Node head;
-    private Node tail;
-    private Node prev;
+
     public Node treeToDoublyList(Node root) {
-        if(null == root) return null;
-        
-        tail = head = prev = null;
-        dfs(root);
-        tail.right = head;
-        head.left = tail;
-        
+        if (root == null) return null;
+        Node head = null, pre = null;
+        inorder(root, pre, head);
+        pre.right = head;
+        head.left = pre;
         return head;
     }
-    void dfs(Node node) {
-        if(null == node) return;
-        dfs(node.left);
-        
-        Node cur = new Node(node.val);
-        if(null == head) {
-            head = cur;
+    void inorder(Node node, Node pre, Node head) {
+        if (node == null) return;
+        inorder(node.left, pre, head);
+        if (head == null) {
+            head = node;
+            pre = node;
+        } else {
+            pre.right = node;
+            node.left = pre;
+            pre = node;
         }
-        if(null != prev) {
-            prev.right = cur;
-            cur.left = prev;
-        }
-        prev = cur;
-        tail = cur;
-        dfs(node.right);
+        inorder(node.right, pre, head);
     }
 }
