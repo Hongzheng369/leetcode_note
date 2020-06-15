@@ -35,7 +35,7 @@ class Solution{
         for(char c: degree.keyset()){
             if(degree.get(c) == 0)  queue.add(c);
         }
-        while(!.queue.isEmpty()){
+        while(!queue.isEmpty()){
             char cur = queue.remove();
             res.append(cur);
             if(map.containsKey(cur)){
