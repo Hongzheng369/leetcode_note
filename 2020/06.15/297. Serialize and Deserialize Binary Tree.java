@@ -8,23 +8,22 @@
  * }
  */
 public class Codec {
-    private static final String split =",";
-    private static final String NN = "null";
-    
+    private final String split = ",";
+    private final String NN = "null";
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         StringBuilder sb = new StringBuilder();
         buildString(sb, root);
         return sb.toString();
-        
     }
-    public void buildString(StringBuilder sb, TreeNode node){
-        if(node == null) sb.append(NN).append(split);
+    public void buildString(StringBuilder sb, TreeNode root){
+        if(root == null) sb.append(NN).append(split);
         else{
-            sb.append(node.val).append(split);
-            buildString(sb, node.left);
-            buildString(sb, node.right);
+        sb.append(root.val).append(split);
+        buildString(sb, root.left);
+        buildString(sb, root.right);   
         }
+
     }
 
     // Decodes your encoded data to tree.
@@ -33,7 +32,6 @@ public class Codec {
         nodes.addAll(Arrays.asList(data.split(split)));
         return buildTree(nodes);
     }
-    
     public TreeNode buildTree(Deque<String> nodes){
         String val = nodes.remove();
         if(val.equals(NN)) return null;
