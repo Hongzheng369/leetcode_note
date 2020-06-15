@@ -42,7 +42,6 @@ class Node {
 };
 */
 class Solution {
-
     public Node treeToDoublyList(Node root) {
         if (root == null) return null;
         Node head = null, pre = null;
