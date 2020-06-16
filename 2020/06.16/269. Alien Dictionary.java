@@ -23,8 +23,10 @@ Class Solution{
                         degree.put(c2[j], degree.get(c2[j]) + 1);  
                     }
                     break;
+                }else{
+                    if(j == c2.length && j < c1.length) return "";
                 }
-                //if()
+                
             }
         }
         Queue<Character> queue = new Queue<>();
