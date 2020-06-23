@@ -12,6 +12,6 @@ class Solution{
                 else j++;
             }
         }
-        return res.toArray(new int[res.size()[2]]);
+        return res.toArray(new int[res.size()][2]);
     }
 }
