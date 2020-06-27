@@ -13,7 +13,7 @@ class Solution{
         List<int[]> res = new ArrayList<>();
         for(int i = 0, j = 0; i < n; i++){
             if(i == n - 1 || start[i + 1] > end[i]){
-                res.add(new int[]{start, end});
+                res.add(new int[]{start[j], end[i]});
                 j = i + 1;
             }
         }
