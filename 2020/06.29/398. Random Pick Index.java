@@ -12,7 +12,7 @@ class Solution{
         for(int i = 0; i < nums.length; i++){
             if(nums[i] != target)   continue;
             count++;
-            if(rand.nextInt(count) == 0)    result = i;
+            if(rand.nextInt(count) == 0)    res = i;
         }
         return res;
     }
