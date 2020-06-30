@@ -26,7 +26,8 @@ Note:
 1 <= K <= 1e8
 题解：
 
-If the missing numbers count of the whole array < k, then missing number must be after nums[n-1].  res = nums[n-1] + missingCount.
+If the missing numbers count of the whole array < k, then missing number must be 
+after nums[n-1].  res = nums[n-1] + missingCount.
 
 Otherwise, need to find out the starting index to calculate the missing number.
 
@@ -43,7 +44,7 @@ Space: O(1).
  class Solution {
       public int missingElement(int[] nums, int k) {
           int n = nums.length;
-          if(nums[n - 1] - nums[0] - (n - 1 - 0) < k){
+          if(nums[n - 1] - nums[0] - (n - 1) < k){
               return nums[n - 1] + k - missCount(nums, n - 1);
           }
           
