@@ -57,8 +57,7 @@ Space: O(1).
              }else{
                  r = mid;
              }
-         }
-         
+         }        
          return nums[l - 1] + k - missCount(nums, l - 1);
      }
      
