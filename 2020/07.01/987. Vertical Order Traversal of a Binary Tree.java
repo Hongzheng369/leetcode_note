@@ -8,7 +8,7 @@
  * }
  */
 class Solution {
-    int min=0, max=0;
+    int min = 0, max = 0;
     Map<Integer, List<Integer>> map = new HashMap();
     public List<List<Integer>> verticalTraversal(TreeNode root) {
         List<List<Integer>> res = new ArrayList();
