@@ -12,7 +12,7 @@ class Solution {
     Map<Integer, List<Integer>> map = new HashMap();
     public List<List<Integer>> verticalTraversal(TreeNode root) {
         List<List<Integer>> res = new ArrayList();
-        if(root==null) return res;
+        if(root == null) return res;
         Queue<TreeNode> qt = new LinkedList();
         Queue<Integer> qi = new LinkedList();
         qt.add(root);
@@ -25,15 +25,15 @@ class Solution {
                 int idx = qi.poll();
                 if(!tmp.containsKey(idx)) tmp.put(idx, new ArrayList<Integer>());
                 tmp.get(idx).add(cur.val);
-                if(idx<min)  min = idx;
-                if(idx>max)  max = idx;
-                if(cur.left!=null){
+                if(idx < min)  min = idx;
+                if(idx > max)  max = idx;
+                if(cur.left != null){
                     qt.add(cur.left);
-                    qi.add(idx-1);
+                    qi.add(idx - 1);
                 }
-                if(cur.right!=null){
+                if(cur.right != null){
                     qt.add(cur.right);
-                    qi.add(idx+1);
+                    qi.add(idx + 1);
                 } 
             }
             for(int key : tmp.keySet()){
@@ -44,7 +44,7 @@ class Solution {
             }
             
         }
-        for (int i=min; i<=max; i++){
+        for (int i = min; i <= max; i++){
             List<Integer> list = map.get(i);
             res.add(list);
         }
