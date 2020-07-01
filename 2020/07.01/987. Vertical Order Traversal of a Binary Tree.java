@@ -20,7 +20,7 @@ class Solution {
         while(!qt.isEmpty()){
             int size = qt.size();
             Map<Integer,List<Integer>> tmp = new HashMap();
-            for(int i=0;i<size;i++){
+            for(int i = 0;i < size;i++){
                 TreeNode cur = qt.poll();
                 int idx = qi.poll();
                 if(!tmp.containsKey(idx)) tmp.put(idx, new ArrayList<Integer>());
