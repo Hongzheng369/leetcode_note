@@ -13,7 +13,7 @@ class Solution {
             for(String str: dict){
                 if(str.length() <= i){
                     if(f[i - str.length()]){
-                        if(s.substring(i-str.length(), i).equals(str)){
+                        if(s.substring(i - str.length(), i).equals(str)){
                             f[i] = true;
                             break;
                         }
