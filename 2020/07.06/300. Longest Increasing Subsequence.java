@@ -13,6 +13,6 @@ class Solution {
             }
             result = Math.max(result, dp[i]);
         }
-        return result;        
+        return result;               
     }
 }
