@@ -19,7 +19,9 @@ class Solution {
                 p2 = p2.next.next;
             }
             
-            //Reverse the half after middle  1->2->3->4->5->6 to 1->2->3->6->5->4
+            //Reverse the half after middle  1->2->3->4->5->6 
+            //to 1->2->3->6->5->4
+
             ListNode preMiddle = p1;
             ListNode preCurrent = p1.next;
        
@@ -31,7 +33,8 @@ class Solution {
                 preMiddle.next = current;
             }
             
-            //Start reorder one by one  1->2->3->6->5->4 to 1->6->2->5->3->4
+            //Start reorder one by one  1->2->3->6->5->4 
+            //to 1->6->2->5->3->4
             p1 = head;
             p2 = preMiddle.next;
        
