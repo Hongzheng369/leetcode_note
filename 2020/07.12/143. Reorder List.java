@@ -11,8 +11,8 @@ class Solution {
             if(head == null || head.next == null) return;
             
             //Find the middle of the list
-            ListNode p1=head;
-            ListNode p2=head;
+            ListNode p1 = head;
+            ListNode p2 = head;
        
             while(p2.next != null && p2.next.next != null){ 
                 p1 = p1.next;
