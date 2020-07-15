@@ -1,5 +1,4 @@
 
-// Author: Huahua
 class Solution {
     public int widthOfBinaryTree(TreeNode root) {
         return dfs(root, 0, 1, new ArrayList<Integer>(), new ArrayList<Integer>());
