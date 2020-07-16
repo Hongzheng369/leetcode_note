@@ -1,3 +1,10 @@
+/* 
+Input: "()())()"
+Output: ["()()()", "(())()"]
+
+Input: "(a)())()"
+Output: ["(a)()()", "(a())()"]
+ */
 class Solution {
     public List<String> removeInvalidParentheses(String s) {
         List<String> res = new ArrayList<>();
