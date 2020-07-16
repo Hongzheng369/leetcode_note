@@ -14,9 +14,7 @@ class Solution {
             if(numClose > numOpen){
                 for(int j = jStart; j <= i; j++){
                     if(s.charAt(j) == close && (j == jStart || s.charAt(j - 1) != close))
-                        bt(res, s.substring(0,j) + s.substring(j+1), i, j, open, close);
-                
-                
+                        bt(res, s.substring(0,j) + s.substring(j+1),   i, j, open, close);
                 }
                 return;
             }
