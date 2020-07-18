@@ -21,8 +21,7 @@ class Solution {
             }
             else{
                 return helper(s,i+1, j) || helper(s, i, j -1);
-            }
-           
+            }          
         }
         return true;
     }
