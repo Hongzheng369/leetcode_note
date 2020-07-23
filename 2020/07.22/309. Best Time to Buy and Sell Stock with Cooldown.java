@@ -12,19 +12,14 @@ Output: 3
 Explanation: transactions = [buy, sell, cooldown, buy, sell] */
 class Solution {
     public int maxProfit(int[] prices) {
-        int len = prices.length;
-        if (len < 2) return 0;
-        int[] sell = new int[len];
-        int[] buy  = new int[len];
-
-        buy[0]  = -prices[0];
-        buy[1]  = -Math.min(prices[0], prices[1]);
-        sell[1] = Math.max(0, buy[0] + prices[1]);
-
-        for (int i = 2; i < len; i++){
-            buy[i]  = Math.max(buy[i - 1], sell[i - 2] - prices[i]);
-            sell[i] = Math.max(sell[i - 1], buy[i - 1] + prices[i]);
+        if(prices == null || prices.length == 0)    return 0;
+        int[][] dp = new int[prices.length][2];
+        dp[0][0] = 0;
+        dp[0][1] = 0 - prices[0];
+        for(int i = 1; i < prices.length; i++){
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
+            dp[i][1] = Math.max(dp[i - 1][1], ((i - 2) >= 0? dp[i - 2][0] : 0) - prices[i]);
         }
-        return sell[len - 1];
+        return Math.max(dp[prices.length - 1][0], dp[prices.length - 1][1]);
     }
 }
