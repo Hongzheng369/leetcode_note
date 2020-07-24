@@ -1,8 +1,4 @@
  class Solution {
-
-    
-
-
     public List<Integer> countSmaller(int[] nums) {
         Integer[] res = new Integer[nums.length];
         Arrays.fill(res, 0);
