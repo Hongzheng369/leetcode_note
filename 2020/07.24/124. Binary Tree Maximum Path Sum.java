@@ -21,7 +21,7 @@ Input: [-10,9,20,null,null,15,7]
     /  \
    15   7
 
-Output: 42 */
+Output: 42  */
 
 /**
  * Definition for a binary tree node.
