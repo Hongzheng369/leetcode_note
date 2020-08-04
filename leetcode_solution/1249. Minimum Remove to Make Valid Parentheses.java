@@ -12,19 +12,19 @@ class Solution {
             sb.append(c);
         }
 
-        for(int i = 0; i < sb.length() -1 && open > 0; i++){
-            if(sb.charAt(i) == '('){
-                sb.deleteCharAt(i);
-                open--;
-            }
-        }
-        
-        // for (int i = sb.length() - 1; i >= 0 && open > 0; i--) {
-        //     if (sb.charAt(i) == '(') {
+        // for(int i = 0; i < sb.length() -1 && open > 0; i++){
+        //     if(sb.charAt(i) == '('){
         //         sb.deleteCharAt(i);
         //         open--;
         //     }
         // }
+        
+        for (int i = sb.length() - 1; i >= 0 && open > 0; i--) {
+            if (sb.charAt(i) == '(') {
+                sb.deleteCharAt(i);
+                open--;
+            }
+        }
 
         return sb.toString();
     }
