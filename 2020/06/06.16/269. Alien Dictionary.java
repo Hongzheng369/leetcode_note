@@ -10,7 +10,7 @@ Class Solution{
         }
         for(int i = 0; i < words.length - 1; i++){
             char[] c1 = words[i].toCharArray();
-            char[] c2 = words[i+1].toCharArray();
+            char[] c2 = words[i + 1].toCharArray();
             int len = Math.min(c1.length, c2.length);
             for(int j = 0; j < len; j++){
                 if(c1[j] != c2[j]){
