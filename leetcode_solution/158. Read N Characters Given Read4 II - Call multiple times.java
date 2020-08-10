@@ -1,10 +1,8 @@
 /*
 158. Read N Characters Given Read4 II - Call multiple times
 The API: int read4(char *buf) reads 4 characters at a time from a file.
-The return value is the actual number of characters read. 
-For example, it returns 3 if there is only 3 characters left in the file.
-By using the read4 API, implement the function int read(char *buf, int n) 
-that reads n characters from the file.
+The return value is the actual number of characters read. For example, it returns 3 if there is only 3 characters left in the file.
+By using the read4 API, implement the function int read(char *buf, int n) that reads n characters from the file.
 Note:
 The read function may be called multiple times.
 
@@ -12,15 +10,11 @@ The read function may be called multiple times.
 
 Solution:
 
-The idea is to use an internal buffer and global variables to keep track of 
-the status after each read4().
+The idea is to use an internal buffer and global variables to keep track of the status after each read4().
 
-Since read() can be called multiple times, after one read() call, 
-there might be still some elements left in the internal buffer.
+Since read() can be called multiple times, after one read() call, there might be still some elements left in the internal buffer.
 
-Therefore, in the next read() call, we first check if there are leftovers. 
-If there are remaining elements in the internal buffer, we move them to 
-the current buffer. And then process the next read().
+Therefore, in the next read() call, we first check if there are leftovers. If there are remaining elements in the internal buffer, we move them to the current buffer. And then process the next read().
 */
 /* The read4 API is defined in the parent class Reader4.
       int read4(char[] buf); */
