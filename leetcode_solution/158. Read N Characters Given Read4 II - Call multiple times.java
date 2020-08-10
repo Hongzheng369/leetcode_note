@@ -59,7 +59,7 @@ sol.read(buf, 1); // We have reached the end of file, no more characters can be 
 
 public class Solution extends Reader4 {
     
-    private char[] buff = new char[4];
+    private char[] buffIdx = new char[4];
     private int buffOffset = 0;
     private int buffCnt = 0;
     
@@ -72,14 +72,14 @@ public class Solution extends Reader4 {
         int offset = 0;
         while (offset < n) {
             if (buffOffset == buffCnt) {
-                buffCnt = read4(buff);
+                buffCnt = read4(buffIdx);
                 buffOffset = 0;
             }
             if (buffCnt == 0) {
                 break;
             }
             while (offset < n && buffOffset < buffCnt) {
-                buf[offset++] = buff[buffOffset++];
+                buf[offset++] = buffIdx[buffOffset++];
             }
         }
         return offset;
