@@ -18,7 +18,13 @@ rows == mat.length
 cols == mat[i].length
 1 <= rows, cols <= 100
 mat[i][j] is either 0 or 1.
-mat[i] is sorted in a non-decreasing way. */
+mat[i] is sorted in a non-decreasing way. 
+
+
+题目大意是给一个二维矩阵matrix，里面只有0和1两种数字，matrix的每一行和每一列的数字都是非递减的。你不能直接访问这个matrix，但是你可以通过给的接口访问matrix的一些东西，比如dimensions()可以拿到matrix的dimension尺寸，get(x, y)可以拿到某一个坐标上的值。请你返回这个矩阵里面最左边的包含起码一个1的column的index。若这个column不存在则返回-1。
+*/
+
+
 
 /**
  * // This is the BinaryMatrix's API interface.
